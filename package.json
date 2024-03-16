@@ -1,0 +1,40 @@
+{
+  "name": "funch-fullstack-assignment-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@mantine/core": "6",
+    "@mantine/dates": "^6.0.21",
+    "@mantine/hooks": "6",
+    "@types/validator": "^13.11.9",
+    "axios": "^1.6.7",
+    "cookies-js": "^1.2.3",
+    "crypto": "^1.0.1",
+    "dayjs": "^1.11.10",
+    "flowbite": "^2.3.0",
+    "flowbite-react": "^0.7.2",
+    "mantine-datatable": "6",
+    "next": "14.1.2",
+    "react": "^18",
+    "react-datepicker": "^6.2.0",
+    "react-dom": "^18",
+    "sweetalert2": "^11.10.6",
+    "validator": "^13.11.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
+  }
+}

@@ -46,7 +46,7 @@ export default function UserBookTable(data: UserBookedProps) {
                 recordsPerPage={PAGE_SIZE}
                 page={page}
                 onPageChange={(p) => setPage(p)}
-                idAccessor="email"
+                idAccessor="id"
             ></DataTable>
         </Box>
     );

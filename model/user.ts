@@ -21,6 +21,7 @@ export interface CreateBookRoom {
 }
 
 export interface GetBookedDate {
+  id: number;
   checkin_at: string;
   checkout_at: string;
   email: string;

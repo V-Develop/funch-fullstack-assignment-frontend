@@ -72,6 +72,14 @@ export default function BookingRoom() {
 
     const createBookRoom = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        if (rangeDate[0] == null || rangeDate[1] == null) {
+            Swal.fire({
+                icon: "error",
+                title: "Please try again...",
+                text: "Book date can not be empty",
+            });
+            return
+        }
         const token = Token.getDescryptToken()
         const userBookRoom: CreateBookRoom = {
             checkin_at: rangeDate[0]!.toISOString().slice(0, -5) + "Z",
@@ -98,6 +106,7 @@ export default function BookingRoom() {
                     showConfirmButton: false,
                     timer: 1500
                 });
+                router.push("/my-book-room")
             }
         } catch (error: any) {
             const axiosError = error as AxiosError<ResponseWithoutPayload>;
@@ -159,6 +168,7 @@ export default function BookingRoom() {
                                             minDate={new Date()}
                                             excludeDate={(date: any) => excludeDate!.some(excludeDate => excludeDate.getTime() === date.getTime())}
                                             clearable
+                                            required
                                         />
                                         <Input
                                             mt={25}
@@ -168,6 +178,8 @@ export default function BookingRoom() {
                                             name="email"
                                             onChange={handleChange}
                                             value={userProfile.email}
+                                            type="email"
+                                            required
                                         />
                                         <Input
                                             mt={25}
@@ -177,6 +189,7 @@ export default function BookingRoom() {
                                             name="firstname"
                                             onChange={handleChange}
                                             value={userProfile.firstname}
+                                            required
                                         />
                                         <Input
                                             mt={25}
@@ -186,15 +199,18 @@ export default function BookingRoom() {
                                             name="lastname"
                                             onChange={handleChange}
                                             value={userProfile.lastname}
+                                            required
                                         />
                                         <Input
                                             mt={25}
                                             mx="auto"
                                             maw={400}
-                                            placeholder="Your phone number"
+                                            placeholder="Your phone number: format 000-000-0000"
                                             name="phone_number"
                                             onChange={handleChange}
                                             value={userProfile.phone_number}
+                                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                            required
                                         />
                                         <Group mt="xl" position="right">
                                             <Button variant="outline" type="submit">
